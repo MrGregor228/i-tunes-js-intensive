@@ -4,8 +4,12 @@ import { musicPlayerInit } from './musicPlayer.js';
 
 const playerBtn = document.querySelectorAll('.player-btn'),
       playerBlock = document.querySelectorAll('.player-block'),
-      temp = document.querySelector('.temp');
-
+      temp = document.querySelector('.temp'),
+      videoPlayer = document.querySelector('.video-player'),
+      audioPlayer = document.querySelector('.audio-player'),
+      audio = document.querySelector('.audio'),
+      audioButtonPlay = document.querySelector('.audio-button__play');
+      
 const deactivationPlayer = () => {
     temp.getElementsByClassName.display = 'none';
     playerBtn.forEach((item) => {
@@ -21,6 +25,16 @@ playerBtn.forEach((btn, i) => {
         deactivationPlayer();
         btn.classList.add('active');
         playerBlock[i].classList.add('active');
+
+        videoPlayer.currentTime = 0;
+        videoPlayer.pause();
+
+        audioPlayer.currentTime = 0;
+        audioPlayer.pause();
+
+        audio.classList.remove('play');
+        audioButtonPlay.classList.add('fa-play');
+        audioButtonPlay.classList.remove('fa-pause');
     });
 });
 

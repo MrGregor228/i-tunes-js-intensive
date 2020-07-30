@@ -6,7 +6,8 @@ export const radioPlayerInit = () => {
           radioItem = document.querySelectorAll('.radio-item'),
           radioStop = document.querySelector('.radio-stop'),
           radioVolume = document.querySelector(".radio-range input[type='range']"),
-          radioVolumeIndicator = document.querySelector('.volume-indicator');
+          radioVolumeIndicator = document.querySelector('.volume-indicator'),
+          playerBtn = document.querySelectorAll('.player-btn');
     
     const audio = new Audio();
     audio.type = 'audio/aac';
@@ -60,6 +61,13 @@ export const radioPlayerInit = () => {
         } else {
             audio.pause();
         }
-        changeIconPlay();
+        
+    });
+
+    playerBtn.forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+            audio.pause();
+            changeIconPlay();
+        });        
     });
 };
